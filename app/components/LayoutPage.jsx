@@ -1,6 +1,6 @@
 
 
-import Header from '@/app/components/header'
+import Header from '@/app/components/Headerr'
 import { getsettings } from '@/sanity/sanity.utils';
 import Footer from './Footer';
 export default async function Layout({ children }) {
