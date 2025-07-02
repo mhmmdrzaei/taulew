@@ -11,7 +11,7 @@ import PhotoGallery from '@/app/components/PhotoGallery'
 import VideoItem from '@/app/components/VideoItem'
 
 export async function generateMetadata({ params }) {
-  // ✅ await params before destructuring
+
   const { categorySlug, year } = await params
   const settings = await getsettings()
 
@@ -58,42 +58,46 @@ export default async function YearPage({ params }) {
 
   return (
     <Layout>
-      <h1 className="text-3xl font-bold mb-6">
+      <h2 className="headingTitle">
         {categorySlug} — {year}
-      </h1>
+      </h2>
 
       {projects.map((proj) => (
-        <section key={proj.slug} className="mb-12">
+        <section key={proj.slug} className="projects-container">
           {/* Title (links to detail page) */}
-          <h2 className="text-2xl font-semibold mb-3">
+          <h3 className="projectTitle">
             <Link
               href={`/projects/${categorySlug}/${proj.slug}`}
               className="text-cyan-600 hover:underline"
             >
               {proj.title}
             </Link>
-          </h2>
-
-          {/* Gallery blocks */}
-          {proj.content
+          </h3>
+          <section className="projectContent">
+                      {proj.content
             ?.filter((b) => b._type === 'gallery')
             .map((g) => (
               <PhotoGallery key={g._key} slideImages={g.slideImages} />
             ))}
 
-          {/* Video blocks */}
+    
           {proj.content
             ?.filter((b) => b._type === 'video')
             .map((v) => (
               <VideoItem key={v._key} {...v} />
             ))}
 
-          {/* Rich text */}
+  
           {proj.textinfo && (
-            <div className="mt-4 prose max-w-none">
+            <div className="textInfo">
               <PortableText value={proj.textinfo} />
             </div>
           )}
+
+          </section>
+
+  
+
         </section>
       ))}
     </Layout>

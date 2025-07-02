@@ -59,9 +59,12 @@ const pageData = await getProjectByCategoryAndSlug(categorySlug, projectSlug)
   const { content, title, textinfo, year } = pageData;
   return (
     <Layout>
-      <h2>{title}</h2>
+      <section className="heading">
+              <h2>{title}</h2>
       <h4>{year}</h4>
-      {content &&
+      </section>
+      <section className="singlecontent">
+              {content &&
       content.map(block => {
   if (block._type === 'gallery') {
     return (
@@ -85,6 +88,10 @@ const pageData = await getProjectByCategoryAndSlug(categorySlug, projectSlug)
         {textinfo && 
         <PortableText value={textinfo}/>
         }
+
+      </section>
+
+
 
     </Layout>
   );

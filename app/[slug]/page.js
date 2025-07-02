@@ -60,7 +60,7 @@ export default async function Page({ params }) {
   const { content, title, textinfo } = pageData;
   return (
     <Layout>
-      <h2>{title}</h2>
+      
       {content &&
       content.map(block => {
   if (block._type === 'gallery') {
@@ -83,7 +83,11 @@ export default async function Page({ params }) {
 })
         }
         {textinfo && 
-        <PortableText value={textinfo}/>
+        <div className="textInfo">
+           <PortableText value={textinfo}/>
+
+        </div>
+       
         }
 
     </Layout>

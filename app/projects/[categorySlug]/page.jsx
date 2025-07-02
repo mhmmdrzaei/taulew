@@ -66,14 +66,14 @@ export default async function CategoryPage({ params }) {
 
   return (
     <Layout>
-      <h1 className="text-3xl font-bold mb-4">
-        Projects in “{categorySlug}”
-      </h1>
+      <h2 className="heading">
+        {categorySlug}
+      </h2>
 
       {sortedYears.map((year) => (
-        <div key={year} className="mb-6">
-          <h2 className="text-2xl font-semibold"><Link href={`/projects/${categorySlug}/year/${year}`}>{year}</Link></h2>
-          <ul className="list-disc list-inside mt-2 space-y-1">
+        <div key={year} className="listContainer">
+          <h3 className="text-2xl font-semibold"><Link href={`/projects/${categorySlug}/year/${year}`}>{year}</Link></h3>
+          <ul className="projectList">
             {byYear[year].map((proj) => (
               <li key={proj.slug}>
                 <Link

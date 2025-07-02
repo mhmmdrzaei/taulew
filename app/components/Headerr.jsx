@@ -26,27 +26,7 @@ export default function Header({ settings }) {
 
   return (
     <header className={`${mobileOpen ? "headingOpen" : ""} site-header`}>
-      <div className="heading-left">
-        <div className="site-branding">
-          <Link href="/">
-            <h1>{siteTitle}</h1>
-          </Link>
-          <div className="subTitle">
-            <span>{subTitle}</span>
-          </div>
-
-          <button
-            className={`hamburger ${mobileOpen ? "active" : ""}`}
-            onClick={() => setMobileOpen((prev) => !prev)}
-            aria-label="Toggle menu"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
-
-        <nav
+                <nav
           className={`main-heading-menu ${
             mobileOpen ? "openMenu" : "collapsed"
           }`}
@@ -71,7 +51,27 @@ export default function Header({ settings }) {
             return null;
           })}
         </nav>
-      </div>
+
+        <div className="site-branding">
+          <Link href="/">
+            <h1>{siteTitle}</h1>
+          </Link>
+          <div className="subTitle">
+            <span>{subTitle}</span>
+          </div>
+
+          <button
+            className={`hamburger ${mobileOpen ? "active" : ""}`}
+            onClick={() => setMobileOpen((prev) => !prev)}
+            aria-label="Toggle menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+
+
     </header>
   );
 }
