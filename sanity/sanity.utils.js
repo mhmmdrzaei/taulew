@@ -87,6 +87,7 @@ export async function getProject(slug) {
       _type,
       _key,
         slideImages[]{
+        _key,
         
         asset->{
           url
@@ -166,7 +167,7 @@ export async function getProjectsByCategoryAndYear(categorySlug, year) {
       _type,
       _key,
         slideImages[]{
-        
+        _key,
         asset->{
           url
         },
@@ -212,7 +213,7 @@ export async function getProjectByCategoryAndSlug(categorySlug, projectSlug) {
       _type,
       _key,
         slideImages[]{
-        
+        _key,
         asset->{
           url
         },
