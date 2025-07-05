@@ -1,29 +1,4 @@
-@font-face {
-  font-family: "gazette_lt_stdbold";
-  src:
-    url("../public/fonts/gazetteltstd-bold-webfont.woff2") format("woff2"),
-    url("../public/fonts/gazetteltstd-bold-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
 
-@font-face {
-  font-family: "gazette_lt_stditalic";
-  src:
-    url("../public/fonts/gazetteltstd-italic-webfont.woff2") format("woff2"),
-    url("../public/fonts/gazetteltstd-italic-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "gazette_lt_stdroman";
-  src:
-    url("../public/fonts/gazetteltstd-roman-webfont.woff2") format("woff2"),
-    url("../public/fonts/gazetteltstd-roman-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
 $blue: #252d59;
 $orange: #dc4300;
 $yellow: #dcc000;
@@ -46,16 +21,20 @@ img {
   max-width: 100%;
   height: auto;
 }
+body {
+  @include fontSize(9);
+  margin: 0;
+    font-family: "Bodoni Moda", serif;
+   font-weight: 400;
+}
 
 h1,
 h2,
 h3,
 h4 {
-  font-family: "gazette_lt_stdbold", serif;
-  font-weight: 900;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
   margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
 }
 a {
   text-decoration: none;
@@ -70,6 +49,7 @@ h1 {
 }
 h2 {
   @include fontSize(14);
+  text-transform: uppercase;
 }
 h3 {
   @include fontSize(10);
@@ -78,20 +58,18 @@ h4 {
   @include fontSize(9.5);
 }
 p {
-  font-family: "gazette_lt_stdroman", serif;
-  letter-spacing: 0.06em;
+   font-family: "Bodoni Moda", serif;
+   font-weight: 400;
+
   strong {
-    font-family: "gazette_lt_stdbold", serif;
+    font-weight: 900;
   }
 }
 figure {
   margin: 0;
 }
 
-body {
-  @include fontSize(9);
-  margin: 0;
-}
+
 .heading, .headingTitle {
   width: 100%;
   text-align: center;
@@ -114,6 +92,9 @@ body {
 .projectTitle {
   margin-top: 20px;
   margin-bottom: 10px;
+}
+.projectContent {
+  margin-bottom: 30px;
 }
 // .react-photo-album {
 //   display: flex;
@@ -308,7 +289,7 @@ footer {
 
     .openMenu {
       display: block;
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;

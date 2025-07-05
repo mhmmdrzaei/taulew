@@ -1,11 +1,20 @@
+// components/NextJsImage.jsx
 'use client';
 
 import Image from 'next/image';
 
 /**
- * Renders a single photo with Next.js Image and an overlayed caption.
+ * Renders a single photo with Next.js Image and an overlayed, truncated caption.
+ * Only the first 5 words of the caption are shown, followed by an ellipsis if longer.
  */
 export default function NextJsImage({ photo, width, height, onClick }) {
+  // Build and truncate the caption
+  const fullCaption = photo.caption || photo.alt || '';
+  const words = fullCaption.trim().split(/\s+/);
+  const truncatedCaption = words.length > 10
+    ? words.slice(0, 10).join(' ') + '...'
+    : fullCaption;
+
   return (
     <div
       style={{ width, height, position: 'relative', cursor: 'pointer' }}
@@ -13,14 +22,14 @@ export default function NextJsImage({ photo, width, height, onClick }) {
     >
       <Image
         src={photo.src}
-        alt={photo.alt || photo.caption}
+        alt={photo.alt || truncatedCaption}
         width={800}
         height={800}
         style={{ objectFit: 'cover' }}
         draggable={false}
       />
 
-      {photo.caption && (
+      {truncatedCaption && (
         <div style={{
           position: 'absolute',
           bottom: 0,
@@ -32,9 +41,10 @@ export default function NextJsImage({ photo, width, height, onClick }) {
           fontSize: '0.75rem',
           textAlign: 'center',
         }}>
-          {photo.caption}
+          {truncatedCaption}
         </div>
       )}
     </div>
   );
 }
+
