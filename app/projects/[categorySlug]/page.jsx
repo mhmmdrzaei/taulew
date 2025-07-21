@@ -69,6 +69,9 @@ export default async function CategoryPage({ params }) {
       <h2 className="heading">
         {categorySlug}
       </h2>
+       {categorySlug === "installations" && (
+                <h3 className='selected'>(selected)</h3>
+              )}
 
       {sortedYears.map((year) => (
         <div key={year} className="listContainer">

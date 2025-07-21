@@ -61,6 +61,7 @@ const pageData = await getProjectByCategoryAndSlug(categorySlug, projectSlug)
     <Layout>
       <section className="heading">
               <h2>{title}</h2>
+
       <h4>{year}</h4>
       </section>
       <section className="singlecontent">
