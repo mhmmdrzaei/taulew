@@ -1,7 +1,7 @@
 // components/NextJsImage.jsx
 'use client';
 
-import Image from 'next/image';
+// import Image from 'next/image';
 
 /**
  * Renders a single photo with Next.js Image and an overlayed, truncated caption.
@@ -19,15 +19,9 @@ export default function NextJsImage({ photo, width, height, onClick }) {
     <div
       style={{ width, height, position: 'relative', cursor: 'pointer' }}
       onClick={onClick}
-    >
-      <Image
-        src={photo.src}
-        alt={photo.alt || truncatedCaption}
-        width={800}
-        height={800}
-        style={{ objectFit: 'cover' }}
-        draggable={false}
-      />
+    > 
+    <img src={photo.src} alt={photo.alt || truncatedCaption}  style={{ objectFit: 'cover' }} draggable={false}  />
+
 
       {truncatedCaption && (
         <div style={{

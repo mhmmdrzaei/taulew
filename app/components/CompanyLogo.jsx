@@ -1,4 +1,3 @@
-import Image from 'next/image'; // if using next/image, or just use <img>
 
 export default function StudioLogo() {
   return (
